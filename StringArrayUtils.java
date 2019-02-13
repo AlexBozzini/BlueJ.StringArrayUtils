@@ -1,5 +1,5 @@
  
-
+import java.util.Arrays;
 /**
  * Created by leon on 1/29/18.
  */
@@ -61,7 +61,9 @@ public class StringArrayUtils {
            array [i] = array[array.length - i - 1];
            array [array.length - i - 1] = temp;
         }
+        System.out.print(Arrays.toString(array));
         return array;
+      
     }
 
     /**
@@ -69,37 +71,7 @@ public class StringArrayUtils {
      * @return true if the order of the array is the same backwards and forwards
      */ // TODO
     public static boolean isPalindromic(String[] array) {
-        if (array.length % 2 == 0){
-        String arrFirstHalf = "";
-        for (int i = 0; i < array.length / 2; i++){
-            arrFirstHalf += array[i];
-        }
-        String arrSecondHalf = "";
-        for (int i = array.length / 2; i < array.length; i++){
-            String temp = array[i];
-            array [i] = array[array.length - i - 1];
-            array [array.length - i - 1] = temp;
-        }
-    
-        if (arrFirstHalf == arrSecondHalf){
-        return true;
-    }
-} else {
-  String arrFirstHalf = "";
-        for (int i = 0; i < (array.length / 2) -1; i++){
-            arrFirstHalf += array[i];
-        }
-        String arrSecondHalf = "";
-        for (int i = (array.length / 2) -1; i < array.length; i++){
-            String temp = array[i];
-            array [i] = array[array.length - i - 1];
-            array [array.length - i - 1] = temp;
-        }  
-          if (arrFirstHalf == arrSecondHalf){
-        return true;
-    }
-}
-return false;
+        return Arrays.toString(array).equals(Arrays.toString(reverse(array)));
 }
 
     /**
@@ -107,8 +79,8 @@ return false;
      * @return true if each letter in the alphabet has been used in the array
      */ // TODO
     public static boolean isPangramic(String[] array) {
-        return false;
-    }
+       return false;
+}
 
     /**
      * @param array array of String objects

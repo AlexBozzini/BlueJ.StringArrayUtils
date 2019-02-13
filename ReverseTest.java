@@ -29,6 +29,13 @@ public class ReverseTest {
         String[] actual = StringArrayUtils.reverse(StringArrayUtils.reverse(expected));
         Assert.assertEquals(expected, actual);
     }
+    
+    @Test
+    public void testReverse4() {
+        String[] expected = {"the", "quick", "brown", "fox", "jumps", "over", "the", "lazy", "dog", "apple"};
+        String[] actual = StringArrayUtils.reverse(StringArrayUtils.reverse(expected));
+        Assert.assertEquals(expected, actual);
+    }
 
 
 
