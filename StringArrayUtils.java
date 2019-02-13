@@ -1,4 +1,4 @@
- 
+import java.util.Scanner;
 import java.util.Arrays;
 /**
  * Created by leon on 1/29/18.
@@ -94,7 +94,15 @@ return true;
      * @return number of occurrences the specified `value` has occurred
      */ // TODO
     public static int getNumberOfOccurrences(String[] array, String value) {
-        return 0;
+        int count = 0;
+        for (int i = 0; i < Integer.valueOf(array.length); i++){
+            if (value.equals(array[i])){
+                count++;
+            }
+        }
+        Scanner in = new Scanner(System.in);
+        System.out.print(count);
+        return count;
     }
 
     /**
