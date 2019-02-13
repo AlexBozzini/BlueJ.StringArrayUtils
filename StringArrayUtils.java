@@ -9,7 +9,7 @@ public class StringArrayUtils {
      * @return first element of specified array
      */ // TODO
     public static String getFirstElement(String[] array) {
-        return null;
+        return array[0];
     }
 
     /**
@@ -17,7 +17,7 @@ public class StringArrayUtils {
      * @return second element in specified array
      */
     public static String getSecondElement(String[] array) {
-        return null;
+        return array[1];
     }
 
     /**
@@ -25,7 +25,8 @@ public class StringArrayUtils {
      * @return last element in specified array
      */ // TODO
     public static String getLastElement(String[] array) {
-        return null;
+        int arrayLength = array.length;
+        return array[arrayLength - 1];
     }
 
     /**
@@ -33,7 +34,8 @@ public class StringArrayUtils {
      * @return second to last element in specified array
      */ // TODO
     public static String getSecondToLastElement(String[] array) {
-        return null;
+        int arrayLength = array.length;
+        return array[arrayLength -2];
     }
 
     /**
@@ -42,15 +44,24 @@ public class StringArrayUtils {
      * @return true if the array contains the specified `value`
      */ // TODO
     public static boolean contains(String[] array, String value) {
+      for (String s: array){
+          if(s.equals(value))
+            return true;
+        }
         return false;
-    }
+}
 
     /**
      * @param array of String objects
      * @return an array with identical contents in reverse order
      */ // TODO
     public static String[] reverse(String[] array) {
-        return null;
+       for (int i = 0; i < array.length / 2; i++){
+           String temp = array[i];
+           array [i] = array[array.length - i - 1];
+           array [array.length - i - 1] = temp;
+        }
+        return array;
     }
 
     /**
@@ -58,8 +69,38 @@ public class StringArrayUtils {
      * @return true if the order of the array is the same backwards and forwards
      */ // TODO
     public static boolean isPalindromic(String[] array) {
-        return false;
+        if (array.length % 2 == 0){
+        String arrFirstHalf = "";
+        for (int i = 0; i < array.length / 2; i++){
+            arrFirstHalf += array[i];
+        }
+        String arrSecondHalf = "";
+        for (int i = array.length / 2; i < array.length; i++){
+            String temp = array[i];
+            array [i] = array[array.length - i - 1];
+            array [array.length - i - 1] = temp;
+        }
+    
+        if (arrFirstHalf == arrSecondHalf){
+        return true;
     }
+} else {
+  String arrFirstHalf = "";
+        for (int i = 0; i < (array.length / 2) -1; i++){
+            arrFirstHalf += array[i];
+        }
+        String arrSecondHalf = "";
+        for (int i = (array.length / 2) -1; i < array.length; i++){
+            String temp = array[i];
+            array [i] = array[array.length - i - 1];
+            array [array.length - i - 1] = temp;
+        }  
+          if (arrFirstHalf == arrSecondHalf){
+        return true;
+    }
+}
+return false;
+}
 
     /**
      * @param array array of String objects
