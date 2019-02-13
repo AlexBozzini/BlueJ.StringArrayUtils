@@ -61,7 +61,6 @@ public class StringArrayUtils {
            array [i] = array[array.length - i - 1];
            array [array.length - i - 1] = temp;
         }
-        System.out.print(Arrays.toString(array));
         return array;
       
     }
@@ -79,7 +78,14 @@ public class StringArrayUtils {
      * @return true if each letter in the alphabet has been used in the array
      */ // TODO
     public static boolean isPangramic(String[] array) {
-       return false;
+       for (char letter = 'a'; letter <= 'z'; letter ++){
+           String value = Arrays.toString(array).toLowerCase();
+           String containsLetter = String.valueOf(letter);
+           if (!value.contains(containsLetter)){
+               return false;
+        } 
+}
+return true;
 }
 
     /**
