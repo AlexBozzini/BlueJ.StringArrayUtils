@@ -100,8 +100,6 @@ return true;
                 count++;
             }
         }
-        Scanner in = new Scanner(System.in);
-        System.out.print(count);
         return count;
     }
 
@@ -111,7 +109,18 @@ return true;
      * @return array with identical contents excluding values of `value`
      */ // TODO
     public static String[] removeValue(String[] array, String valueToRemove) {
-        return null;
+        Integer count = 0;
+        for (int i = 0; i < Integer.valueOf(array.length); i++){
+            
+            if (valueToRemove.equals(array[i-count])){
+                String[] endOfTheArray = Arrays.copyOfRange(array, i-count+1, array.length);
+                for(int j = 0; j < endOfTheArray.length; j++) {
+                    array[i-count + j] = endOfTheArray[j];    
+                }
+                count++;
+            }
+        }
+        return Arrays.copyOf(array, array.length - count);
     }
 
     /**
