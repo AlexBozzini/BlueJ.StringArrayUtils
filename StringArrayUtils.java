@@ -128,7 +128,19 @@ return true;
      * @return array of Strings with consecutive duplicates removes
      */ // TODO
     public static String[] removeConsecutiveDuplicates(String[] array) {
-        return null;
+      Integer count = 0;
+        for (int i = 1; i < Integer.valueOf(array.length); i++){
+            
+            if (array[i].equals(array[i - 1])){
+                String[] endOfTheArray = Arrays.copyOfRange(array, i-count+1, array.length);
+                for(int j = 0; j < endOfTheArray.length; j++) {
+                    array[i-count + j] = endOfTheArray[j];    
+                }
+                count++;
+            }
+        }
+        System.out.println(Arrays.toString(Arrays.copyOf(array, array.length - count)));
+        return Arrays.copyOf(array, array.length - count);
     }
 
     /**
